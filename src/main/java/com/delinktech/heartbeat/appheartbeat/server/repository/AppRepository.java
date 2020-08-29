@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  **/
 @Repository
 public interface AppRepository extends JpaRepository<App,Long> {
-    App findByName(String appName);
+    App findByAppName(String appName);
 }

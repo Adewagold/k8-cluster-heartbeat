@@ -22,7 +22,7 @@ public class AppServiceImpl implements AppService {
 
     @Override
     public App findByAppName(String appName) {
-        return appRepository.findByName(appName);
+        return appRepository.findByAppName(appName);
     }
 
     @Override

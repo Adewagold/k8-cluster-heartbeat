@@ -14,7 +14,6 @@ import javax.validation.Validator;
 import java.util.Set;
 
 @SpringBootTest
-@EnableJpaRepositories
 class AppHeartbeatApplicationTests {
 
     @Autowired
@@ -28,7 +27,7 @@ class AppHeartbeatApplicationTests {
     public void whenMonitorEndpoint_is_called_return_OK(){
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> httpEntity = new HttpEntity<>(headers);
-        ResponseEntity<String> response = restTemplate.exchange(getRootUrl()+"/monitor/heartbeat", HttpMethod.GET,httpEntity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080/api/v1/app-status/", HttpMethod.GET,httpEntity, String.class);
         Assert.assertEquals(HttpStatus.OK,response.getStatusCode());
     }
 
